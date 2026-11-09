@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1a0a10">
+  <!-- Primary SEO -->
+  <title>Favourite Button Animation | mrchandrayee</title>
+  <meta name="description" content="A delightful heart favourite button with burst particle animation on toggle. Pure HTML, CSS & JavaScript.">
+  <meta name="author" content="mrchandrayee">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mrchandrayee.github.io/favourite-button-animation/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mrchandrayee.github.io/favourite-button-animation/">
+  <meta property="og:title" content="Favourite Button Animation | mrchandrayee">
+  <meta property="og:description" content="A delightful heart favourite button with burst particle animation on toggle. Pure HTML, CSS & JavaScript.">
+  <meta property="og:image" content="https://mrchandrayee.github.io/favourite-button-animation/preview.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://mrchandrayee.github.io/favourite-button-animation/">
+  <meta name="twitter:title" content="Favourite Button Animation | mrchandrayee">
+  <meta name="twitter:description" content="A delightful heart favourite button with burst particle animation on toggle. Pure HTML, CSS & JavaScript.">
+  <meta name="twitter:image" content="https://mrchandrayee.github.io/favourite-button-animation/preview.png">
+  <meta name="twitter:creator" content="@mrchandrayee">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Favourite Button Animation",
+    "description": "A delightful heart favourite button with burst particle animation on toggle. Pure HTML, CSS & JavaScript.",
+    "url": "https://mrchandrayee.github.io/favourite-button-animation/",
+    "author": { "@type": "Person", "name": "mrchandrayee", "url": "https://github.com/mrchandrayee" },
+    "applicationCategory": "WebApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <meta name="theme-color" content="#08080f">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <h1>Favourite Button<br><span>Animation</span></h1>
+    <section class="demo" aria-label="Favourite button animation demo">
+      <button class="fav save" id="saveBtn" type="button" aria-pressed="false">
+        <span class="star-wrap"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.82 5.72 6.31.92-4.56 4.45 1.08 6.28L12 17.2l-5.65 2.97 1.08-6.28-4.56-4.45 6.31-.92L12 2.8Z"/></svg></span>
+        <span class="label">Save</span>
+      </button>
+      <button class="fav watch active" id="watchBtn" type="button" aria-pressed="true">
+        <span class="star-wrap"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.82 5.72 6.31.92-4.56 4.45 1.08 6.28L12 17.2l-5.65 2.97 1.08-6.28-4.56-4.45 6.31-.92L12 2.8Z"/></svg></span>
+        <span class="label">Watch</span>
+      </button>
+    </section>
+    <p class="hint" id="hint" aria-live="polite">Tap a button to add or remove it from your favourites.</p>
+    <button class="reset" id="reset" type="button">↻ Reset animation</button>
+    <footer><span>✦</span> CODE_AND_CHILL</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

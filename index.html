@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Favourite Button Animation</title><link rel="stylesheet" href="app.css"></head>
+<body>
+<main class="page">
+ <h1>Favourite Button<br><span>Animation</span></h1>
+ <section class="demo" aria-label="Favourite button animation demo">
+  <button class="gild" id="saveBtn" data-state="off" aria-pressed="false">
+   <span class="gild_seat"><span class="gild_well"></span><span class="gild_flyer"><svg class="gild_star" viewBox="0 0 100 100"><path class="gild_body" d="M50 5 62 34 94 36 70 57 78 89 50 72 22 89 30 57 6 36 38 34Z"/><g class="gild_face"><ellipse cx="40.4" cy="49" rx="3.5" ry="5"/><ellipse cx="59.6" cy="49" rx="3.5" ry="5"/><path d="M42 62Q50 69 58 62"/></g></svg></span></span>
+   <span class="gild_label">Save</span>
+  </button>
+  <button class="gild dark" id="watchBtn" data-state="on" aria-pressed="true">
+   <span class="gild_seat"><span class="gild_well"></span><span class="gild_flyer"><svg class="gild_star" viewBox="0 0 100 100"><path class="gild_body" d="M50 5 62 34 94 36 70 57 78 89 50 72 22 89 30 57 6 36 38 34Z"/><g class="gild_face"><ellipse cx="40.4" cy="49" rx="3.5" ry="5"/><ellipse cx="59.6" cy="49" rx="3.5" ry="5"/><path d="M42 62Q50 69 58 62"/></g></svg></span></span>
+   <span class="gild_label">Watch</span>
+  </button>
+ </section>
+ <div class="handle"><b>@</b>_code_and_chill_</div>
+ <section class="code-panels">
+  <article class="code-card"><header><i class="html"></i>index.html</header><pre><code><em>&lt;!-- a FLYER over a WELL: the
+     button opens a hole in its own
+     face and the star goes in --&gt;</em>
+<span class="tag">&lt;button</span> class="gild" data-gild
+  aria-pressed="false"<span class="tag">&gt;</span>
+  <span class="tag">&lt;span</span> class="gild__seat"<span class="tag">&gt;</span>
+    <span class="tag">&lt;span</span> class="gild__well"<span class="tag">&gt;&lt;/span&gt;</span>
+    <span class="tag">&lt;span</span> class="gild__flyer"<span class="tag">&gt;</span>
+      <span class="tag">&lt;svg</span> class="gild__star"
+        viewBox="0 0 100 100"<span class="tag">&gt;</span>
+        <span class="tag">&lt;path</span> class="gild__body"
+          data-star d="…"<span class="tag">/&gt;</span>
+        <span class="tag">&lt;g</span> class="gild__face"<span class="tag">&gt;</span>
+          <span class="tag">&lt;ellipse</span> cx="40.4" …<span class="tag">/&gt;</span>
+          <span class="tag">&lt;ellipse</span> cx="59.6" …<span class="tag">/&gt;</span>
+          <span class="tag">&lt;path</span> data-mouth d="…"<span class="tag">/&gt;</span>
+        <span class="tag">&lt;/g&gt;</span>
+      <span class="tag">&lt;/svg&gt;</span>
+    <span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;span</span> class="gild__label"<span class="tag">&gt;</span>Save<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;/button&gt;</span></code></pre></article>
+  <article class="code-card"><header><i class="css"></i>app.css</header><pre><code><em>/* height and squash are WORLD-
+   vertical and pivot on the star's
+   FEET; the spin is about its own
+   centre — scale outside rotate is
+   the only order that stretches */</em>
+.gild__flyer {
+  transform:
+    translateY(calc(var(--h) * -1px))
+    scale(var(--sx), var(--sy));
+  transform-origin: 50% 88%;
+  opacity: var(--a);
+}
+.gild__star {
+  transform: rotate(var(--rot));
+}
+
+/* the well is a RECESS, not a
+   shadow: a dark core, a soft edge,
+   and a lit lip along the bottom */
+.gild__well {
+  background: radial-gradient(
+    closest-side ellipse at 50% 40%,
+    var(--well) 56%, #0000);
+}</code></pre></article>
+  <article class="code-card"><header><i class="js"></i>app.js</header><pre><code><em>// MEASURED off the reference at
+// 60fps. the return is a PULL, not
+// a fall: 0.24s up, 0.11s back</em>
+const G_UP = 29.1;  <em>// 0's</em>
+const SUCK = 137;   <em>// 4.7 gravities</em>
+const DIP_H = .84, CAST_H = 1.48;
+
+// 1 — the tell: flicked out by the
+// release, then taken back
+h = V_DIP * t - .5 * G_UP * t * t;
+h = DIP_H - .5 * SUCK * s * s;
+
+// 2 — the cast: it leaves the well
+// MOLTEN and crystallises on
+// the way up, finishing exactly
+// at the apex
+h = V_CAST * s - .5 * G_UP * s * s;
+bloom = smooth(h / (CAST_H * .58));
+
+// one point-step — 72°, so it
+// lands upright without ever being
+// upright on the way
+rot = -72 * ease(s / CAST_AIR);</code></pre></article>
+ </section>
+</main>
+<div class="toast" id="toast"></div><script src="app.js"></script></body></html>
